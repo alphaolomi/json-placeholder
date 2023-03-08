@@ -1,4 +1,4 @@
-# Json API for PHP
+# Json Placeholder API for PHP
 
 > Built with [Saloon v2](https://github.com/sammyjo20/saloon).
 
