@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace Json\DataFactories;
 
 use Json\DataObjects\User;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
 
 final class UserFactory
 {
     public static function new(array $attributes): User
     {
-        return (new static)->make(
+        return (new self)->make(
             attributes: $attributes,
         );
     }

@@ -1,10 +1,9 @@
 # Json Placeholder API for PHP
 
-> Built with [Saloon v2](https://github.com/sammyjo20/saloon).
+A PHP SDK for the [JSON Placeholder API](https://jsonplaceholder.typicode.com/).
 
-## Available Requests
 
-- `Json\Requests\GetAllUsers`
+>Built with [Saloon v2](https://github.com/sammyjo20/saloon).
 
 ## Installation
 
@@ -17,19 +16,20 @@ composer require alphaolomi/json-api
 ## Usage
 
 ```php
-<?php
-
-use Json\Requests\GetAllUsers;
-
 $api = new Json\Api();
 
-$response = $api->send(new GetAllUsers);
+$users = $api->users()->list();
+
+foreach($users as $user) {
+    echo $user->name;
+}
 ```
 
 Shorthand
 
 ```php
-$users =  (new Json\Api())->send(new Json\Requests\GetAllUsers)->json();
+$users =  (new Json\Api())->users()->list();
+
 print_r($users);
 
 // array:10 [
@@ -52,15 +52,44 @@ print_r($users);
 You may prefer to retrieve all the results from the paginated requests by using the `paginator` method on the SDK.
 
 ```php
-<?php
-
-use Json\Requests\GetAllUsers;
-
 $api = new Json\Api();
 
-$results = $api->paginator(new GetAllUsers);
+$results = $api->users()->paginate();
 
 foreach($results as $result) {
     // Handle result
+    echo $result->name;
 }
 ```
+
+
+## Available Resources
+
+- Users
+    - List all users
+    - Get a single user
+    - Create a user
+    - Update a user
+    - Delete a user
+    - Paginate users
+
+
+## Testing
+
+Using Pest Testing Framework, run the following command to run the tests.
+
+```
+composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Credits
+
+- [Alpha Olomi](https://github.com/alpaholomi) 
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.

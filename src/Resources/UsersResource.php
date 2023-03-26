@@ -2,7 +2,6 @@
 
 namespace Json\Resources;
 
-
 use Json\Requests\GetRequest;
 use Json\Requests\PostRequest;
 use Saloon\Contracts\Connector;
@@ -18,8 +17,6 @@ class UsersResource extends Resource
     ) {
     }
 
-    /**
-     */
     public function list(int $page = 1)
     {
         $page = max($page, 1);
@@ -33,7 +30,7 @@ class UsersResource extends Resource
 
     /**
      * Iterate over a paginated request
-     * 
+     *
      * ```php
      * $api = new Json\Api();
      * $users = $api->users();
@@ -41,7 +38,7 @@ class UsersResource extends Resource
      *    // do something with $user
      * }
      * ```
-     * 
+     *
      * ```php
      * $api = new Json\Api();
      * $data =  $api->users()->paginate(function ($connector, $request, $response) {
@@ -60,9 +57,10 @@ class UsersResource extends Resource
      * }
      * ````
      *
-     * @param \Saloon\Contracts\Request $request
-     * @param bool $asResponse
+     * @param  \Saloon\Contracts\Request  $request
+     * @param  bool  $asResponse
      * @return \Generator
+     *
      * @throws \ReflectionException
      * @throws \Saloon\Exceptions\InvalidResponseClassException
      * @throws \Saloon\Exceptions\PendingRequestException
@@ -73,6 +71,7 @@ class UsersResource extends Resource
         if ($using === null) {
             $request = new GetRequest('/users', ['_page' => $page]);
             $response = $this->connector->send($request);
+
             return $using($this->connector, $request, $response);
         }
 
@@ -88,7 +87,7 @@ class UsersResource extends Resource
 
             $nextLink = $response->headers()->get('Links')['next'] ?? null;
             // get the _page and _limit from the $nextLink
-            if ($nextLink  !== null) {
+            if ($nextLink !== null) {
                 $nextUrl = parse_url($nextLink);
                 parse_str($nextUrl['query'], $nextQuery);
                 $request->query()->merge($nextQuery);

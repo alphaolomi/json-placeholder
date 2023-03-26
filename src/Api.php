@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Json;
 
-use Generator;
-use Saloon\Http\Connector;
-use Saloon\Contracts\Request;
 use Json\Responses\ApiResponse;
+use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class Api extends Connector
@@ -18,25 +16,19 @@ class Api extends Connector
 
     protected ?string $baseUrl = 'https://jsonplaceholder.typicode.com';
 
-    /**
-     * @param string|null $apiKey
-     * @param string|null $baseUrl
-     */    
-    public function __construct(?string $apiKey = null, string $baseUrl = null) {
+    public function __construct(?string $apiKey = null, string $baseUrl = null)
+    {
         $this->apiKey = $apiKey ?? $this->apiKey;
         $this->baseUrl = $baseUrl ?? $this->baseUrl;
     }
 
     /**
      * Define the custom response
-     *
      */
     protected ?string $response = ApiResponse::class;
 
     /**
      * Resolve the base URL of the service.
-     *
-     * @return string
      */
     public function resolveBaseUrl(): string
     {
@@ -61,12 +53,11 @@ class Api extends Connector
         return [
             '_page' => 1, // &_page=1
         ];
-    } 
+    }
 
     /**
      * @return \Json\Resources\UsersResource
      */
-
     public function users(): Resources\UsersResource
     {
         return new Resources\UsersResource($this);

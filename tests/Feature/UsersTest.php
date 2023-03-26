@@ -21,15 +21,14 @@ it('can instantiate Api class', function () {
 });
 
 it('can list users', function () {
-    $this->mockClient->addResponse(MockResponse::fixture('users.index'),);
+    $this->mockClient->addResponse(MockResponse::fixture('users.index'));
     $response = $this->api->users()->list();
     expect($response)->toBeArray();
 });
 
-
 it('can create a user', function () {
-    $this->mockClient->addResponse(MockResponse::fixture('users.create'),);
-    $userStr =  <<<JSON
+    $this->mockClient->addResponse(MockResponse::fixture('users.create'));
+    $userStr = <<<'JSON'
 {
     "name": "Leanne Graham",
     "username": "Bret",
@@ -54,17 +53,15 @@ JSON;
     expect($response)->toBeArray();
 });
 
-
 it('can get a user', function () {
-    $this->mockClient->addResponse(MockResponse::fixture('users.show'),);
-    $response = $this->api->users()->get((string)1);
+    $this->mockClient->addResponse(MockResponse::fixture('users.show'));
+    $response = $this->api->users()->get((string) 1);
     expect($response)->toBeArray();
 });
 
 // delete
 it('can delete a user', function () {
-    $this->mockClient->addResponse(MockResponse::fixture('users.delete'),);
-    $response = $this->api->users()->delete((string)2);
+    $this->mockClient->addResponse(MockResponse::fixture('users.delete'));
+    $response = $this->api->users()->delete((string) 2);
     expect($response)->toBeArray();
 })->skip('Not implemented yet');
-
