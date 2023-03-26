@@ -1,9 +1,13 @@
 # Json Placeholder API for PHP
 
+[![Built with](https://img.shields.io/badge/built%20with-Saloon%20v2-blue)](https://github.com/sammyjo20/saloon)[![Tests](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml) [![Fix PHP code style issues](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml)
+
+<br>
+
 A PHP SDK for the [JSON Placeholder API](https://jsonplaceholder.typicode.com/).
 
 
->Built with [Saloon v2](https://github.com/sammyjo20/saloon).
+
 
 ## Installation
 
