@@ -1,6 +1,6 @@
-# Json Placeholder API for PHP
+# Json Placeholder for PHP
 
-[![Built with](https://img.shields.io/badge/built%20with-Saloon%20v2-blue)](https://github.com/sammyjo20/saloon)[![Tests](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml) [![Fix PHP code style issues](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml)
+[![Packagist Version](https://img.shields.io/packagist/v/alphaolomi/json-placeholder)](https://packagist.org/packages/alphaolomi/json-placeholder) [![Built with](https://img.shields.io/badge/built%20with-Saloon%20v2-blue)](https://github.com/sammyjo20/saloon) [![Tests](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml) [![Fix PHP code style issues](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml) ![Packagist Downloads](https://img.shields.io/packagist/dt/alphaolomi/json-placeholder)
 
 <br>
 
@@ -14,7 +14,7 @@ A PHP SDK for the [JSON Placeholder API](https://jsonplaceholder.typicode.com/).
 Use Composer to install this SDK
 
 ```
-composer require alphaolomi/json-api
+composer require alphaolomi/json-placeholder
 ```
 
 ## Usage
