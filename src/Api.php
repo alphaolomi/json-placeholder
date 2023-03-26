@@ -8,9 +8,25 @@ use Generator;
 use Saloon\Http\Connector;
 use Saloon\Contracts\Request;
 use Json\Responses\ApiResponse;
+use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 
 class Api extends Connector
 {
+    use AlwaysThrowOnErrors;
+
+    protected ?string $apiKey = null;
+
+    protected ?string $baseUrl = 'https://jsonplaceholder.typicode.com';
+
+    /**
+     * @param string|null $apiKey
+     * @param string|null $baseUrl
+     */    
+    public function __construct(?string $apiKey = null, string $baseUrl = null) {
+        $this->apiKey = $apiKey ?? $this->apiKey;
+        $this->baseUrl = $baseUrl ?? $this->baseUrl;
+    }
+
     /**
      * Define the custom response
      *
@@ -24,8 +40,7 @@ class Api extends Connector
      */
     public function resolveBaseUrl(): string
     {
-        return 'https://jsonplaceholder.typicode.com/';
-        // return 'http://localhost:3000/';
+        return $this->baseUrl;
     }
 
     /**
@@ -46,34 +61,14 @@ class Api extends Connector
         return [
             '_page' => 1, // &_page=1
         ];
-    }
+    } 
 
     /**
-     * Iterate over a paginated request
-     *
-     * @param \Saloon\Contracts\Request $request
-     * @param bool $asResponse
-     * @return \Generator
-     * @throws \ReflectionException
-     * @throws \Saloon\Exceptions\InvalidResponseClassException
-     * @throws \Saloon\Exceptions\PendingRequestException
+     * @return \Json\Resources\UsersResource
      */
-    public function paginator(Request $request, bool $asResponse = false): Generator
+
+    public function users(): Resources\UsersResource
     {
-        do {
-            // send the request
-            $response = $this->send($request);
-            // if we want the response, yield it
-            yield from $response->json();
-            // get the next link from the Links header
-            $nextLink = $response->headers()->get('Links')['next'] ?? null;
-            // get the _page and _limit from the $nextUrl
-            if ($nextLink  !== null) {
-                $nextUrl = parse_url($nextLink);
-                parse_str($nextUrl['query'], $nextQuery);
-                // set the next page in the query
-                $request->query()->merge($nextQuery);
-            }
-        } while ($nextLink !== null);
+        return new Resources\UsersResource($this);
     }
 }
