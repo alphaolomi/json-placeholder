@@ -6,9 +6,6 @@
 
 A PHP SDK for the [JSON Placeholder API](https://jsonplaceholder.typicode.com/).
 
-
-
-
 ## Installation
 
 Use Composer to install this SDK
@@ -66,24 +63,44 @@ foreach($results as $result) {
 }
 ```
 
-
 ## Available Resources
 
 - Users
-    - List all users
-    - Get a single user
-    - Create a user
-    - Update a user
-    - Delete a user
-    - Paginate users
+  - List all users
+  - Get a single user
+  - Create a user
+  - Update a user
+  - Delete a user
+  - Paginate users
+
+## Paginate
+
+You can paginate the results by using the `paginate` method on the SDK.
+
+To customize the pagination, you can pass a page number and a closure to the `paginate` method. The closure will be called with the request and response objects, allowing you to customize the logic to get the next page.
 
 
+```php
+$api = new Json\Api();
+
+$users = $api->users()->paginate($page = 1, function ($request, $response) {
+    $nextLink = $response->headers()->get('Links')['next'] ?? null;
+    // get the _page and _limit from the $nextLink
+    if ($nextLink !== null) {
+        $nextUrl = parse_url($nextLink);
+        parse_str($nextUrl['query'], $nextQuery);
+        $request->query()->merge($nextQuery);
+    }
+});
+```
 ## Testing
 
 Using Pest Testing Framework, run the following command to run the tests.
 
 ```
+
 composer test
+
 ```
 
 ## Contributing
@@ -92,8 +109,9 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Alpha Olomi](https://github.com/alpaholomi) 
+- [Alpha Olomi](https://github.com/alpaholomi)
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+```

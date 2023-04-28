@@ -56,9 +56,6 @@ class UsersResource extends Resource
      *   // do something with $user
      * }
      * ````
-     *
-     * @param  \Saloon\Contracts\Request  $request
-     * @param  bool  $asResponse
      * @return \Generator
      *
      * @throws \ReflectionException
@@ -68,29 +65,22 @@ class UsersResource extends Resource
     public function paginate(int $page = 1, callable $using = null)
     {
         $page = max($page, 1);
-        if ($using === null) {
-            $request = new GetRequest('/users', ['_page' => $page]);
-            $response = $this->connector->send($request);
-
-            return $using($this->connector, $request, $response);
-        }
-
         do {
             $request = new GetRequest('/users', ['_page' => $page]);
 
             $response = $this->connector->send($request);
             yield from $response->json();
 
-            if ($using !== null) {
-                $using($this->connector, $request, $response);
-            }
-
-            $nextLink = $response->headers()->get('Links')['next'] ?? null;
-            // get the _page and _limit from the $nextLink
-            if ($nextLink !== null) {
-                $nextUrl = parse_url($nextLink);
-                parse_str($nextUrl['query'], $nextQuery);
-                $request->query()->merge($nextQuery);
+            if ($using !== null && is_callable($using)) {
+                $using($request, $response);
+            } else {
+                $nextLink = $response->headers()->get('Links')['next'] ?? null;
+                // get the _page and _limit from the $nextLink
+                if ($nextLink !== null) {
+                    $nextUrl = parse_url($nextLink);
+                    parse_str($nextUrl['query'], $nextQuery);
+                    $request->query()->merge($nextQuery);
+                }
             }
         } while ($nextLink !== null);
     }
