@@ -21,6 +21,7 @@ function mockClient(): MockClient
         },
     ]);
 }
+
 function something()
 {
     // ..
