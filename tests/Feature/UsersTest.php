@@ -9,10 +9,13 @@ use Saloon\Http\Faking\MockResponse;
 
 beforeEach(function () {
     MockConfig::setFixturePath('tests/Fixtures');
+
     /** @var Saloon\Http\Faking\MockClient */
     $this->mockClient = new MockClient([]);
+    
     /** @var Json\Api */
     $this->api = new Api();
+    
     $this->api->withMockClient($this->mockClient);
 });
 
@@ -28,7 +31,7 @@ it('can list users', function () {
 
 it('can create a user', function () {
     $this->mockClient->addResponse(MockResponse::fixture('users.create'));
-    $userStr = <<<'JSON'
+    $userStr = <<<JSON
 {
     "name": "Leanne Graham",
     "username": "Bret",
@@ -59,9 +62,8 @@ it('can get a user', function () {
     expect($response)->toBeArray();
 });
 
-// delete
 it('can delete a user', function () {
     $this->mockClient->addResponse(MockResponse::fixture('users.delete'));
     $response = $this->api->users()->delete((string) 2);
     expect($response)->toBeArray();
-})->skip('Not implemented yet');
+});
