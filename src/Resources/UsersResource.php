@@ -2,6 +2,7 @@
 
 namespace Json\Resources;
 
+use Json\Requests\DeleteRequest;
 use Json\Requests\GetRequest;
 use Json\Requests\PostRequest;
 use Saloon\Contracts\Connector;
@@ -136,6 +137,8 @@ class UsersResource extends Resource
      */
     public function delete(string $id)
     {
-        $this->connector->send(new PostRequest("/users/$id", ['_method' => 'DELETE']));
+        $data = $this->connector->send(new DeleteRequest("/users/$id"))->json();
+
+        return $data;
     }
 }
