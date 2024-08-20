@@ -16,7 +16,7 @@ class Api extends Connector
 
     protected ?string $baseUrl = 'https://jsonplaceholder.typicode.com';
 
-    public function __construct(?string $apiKey = null, string $baseUrl = null)
+    public function __construct(?string $apiKey = null, ?string $baseUrl = null)
     {
         $this->apiKey = $apiKey ?? $this->apiKey;
         $this->baseUrl = $baseUrl ?? $this->baseUrl;
@@ -55,9 +55,6 @@ class Api extends Connector
         ];
     }
 
-    /**
-     * @return \Json\Resources\UsersResource
-     */
     public function users(): Resources\UsersResource
     {
         return new Resources\UsersResource($this);

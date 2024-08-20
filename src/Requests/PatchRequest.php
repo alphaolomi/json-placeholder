@@ -30,8 +30,6 @@ class PatchRequest extends BaseRequest implements HasBody
 
     /**
      * Create a new request instance
-     *
-     * @param  ?array  $data
      */
     public function __construct(string $path, ?array $data = null)
     {

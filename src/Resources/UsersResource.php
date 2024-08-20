@@ -15,8 +15,7 @@ class UsersResource extends Resource
 {
     public function __construct(
         protected Connector $connector,
-    ) {
-    }
+    ) {}
 
     public function list(int $page = 1)
     {
@@ -66,7 +65,7 @@ class UsersResource extends Resource
      * @throws \Saloon\Exceptions\InvalidResponseClassException
      * @throws \Saloon\Exceptions\PendingRequestException
      */
-    public function paginate(int $page = 1, callable $using = null)
+    public function paginate(int $page = 1, ?callable $using = null)
     {
         $page = max($page, 1);
         if ($using === null) {

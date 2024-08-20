@@ -12,10 +12,10 @@ beforeEach(function () {
 
     /** @var Saloon\Http\Faking\MockClient */
     $this->mockClient = new MockClient([]);
-    
+
     /** @var Json\Api */
-    $this->api = new Api();
-    
+    $this->api = new Api;
+
     $this->api->withMockClient($this->mockClient);
 });
 
@@ -31,7 +31,7 @@ it('can list users', function () {
 
 it('can create a user', function () {
     $this->mockClient->addResponse(MockResponse::fixture('users.create'));
-    $userStr = <<<JSON
+    $userStr = <<<'JSON'
 {
     "name": "Leanne Graham",
     "username": "Bret",
