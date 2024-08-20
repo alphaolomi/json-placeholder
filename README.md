@@ -1,19 +1,17 @@
 # Json Placeholder for PHP
 
-[![Packagist Version](https://img.shields.io/packagist/v/alphaolomi/json-placeholder)](https://packagist.org/packages/alphaolomi/json-placeholder) [![Built with](https://img.shields.io/badge/built%20with-Saloon%20v2-blue)](https://github.com/sammyjo20/saloon) [![Tests](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/tests.yml) [![Fix PHP code style issues](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml/badge.svg)](https://github.com/alphaolomi/json-placeholder/actions/workflows/fix-php-code-style-issues.yml) ![Packagist Downloads](https://img.shields.io/packagist/dt/alphaolomi/json-placeholder)
-
-<br>
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/alphaolomi/json-placeholder.svg?style=flat-square)](https://packagist.org/packages/alphaolomi/json-placeholder)
+[![Tests](https://img.shields.io/github/actions/workflow/status/alphaolomi/json-placeholder/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/alphaolomi/json-placeholder/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/alphaolomi/json-placeholder.svg?style=flat-square)](https://packagist.org/packages/alphaolomi/json-placeholder)
 
 A PHP SDK for the [JSON Placeholder API](https://jsonplaceholder.typicode.com/).
 
 
-
-
 ## Installation
 
-Use Composer to install this SDK
+You can install the package via composer:
 
-```
+```bash
 composer require alphaolomi/json-placeholder
 ```
 
@@ -80,19 +78,30 @@ foreach($results as $result) {
 
 ## Testing
 
-Using Pest Testing Framework, run the following command to run the tests.
 
-```
+Using PestPHP Testing framework, run the following command to execute the tests.
+
+
+```bash
 composer test
 ```
 
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+
+## Security Vulnerabilities
+
+Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
-- [Alpha Olomi](https://github.com/alpaholomi) 
+- [Alpha Olomi](https://github.com/alphaolomi)
+- [All Contributors](../../contributors)
 
 ## License
 
