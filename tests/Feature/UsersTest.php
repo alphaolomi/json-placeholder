@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Json\Api;
-use Saloon\MockConfig;
 use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
+use Saloon\MockConfig;
 
 beforeEach(function () {
     MockConfig::setFixturePath('tests/Fixtures');
@@ -14,7 +14,7 @@ beforeEach(function () {
     $this->mockClient = new MockClient([]);
 
     /** @var Json\Api */
-    $this->api = new Api();
+    $this->api = new Api;
 
     $this->api->withMockClient($this->mockClient);
 });
