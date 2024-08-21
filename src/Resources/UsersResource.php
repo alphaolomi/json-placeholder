@@ -5,8 +5,8 @@ namespace Json\Resources;
 use Json\Requests\DeleteRequest;
 use Json\Requests\GetRequest;
 use Json\Requests\PostRequest;
-use Saloon\Http\Connector;
 use Saloon\Exceptions\Request\RequestException;
+use Saloon\Http\Connector;
 
 /**
  * @property Connector $connector

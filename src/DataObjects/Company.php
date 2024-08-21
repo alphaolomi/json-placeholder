@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Json\DataObjects;
 
-
 class Company
 {
     public string $name;

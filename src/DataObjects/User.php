@@ -42,4 +42,3 @@ class User
         $this->company = $company;
     }
 }
-

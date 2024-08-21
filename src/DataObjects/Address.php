@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Json\DataObjects;
 
-
 class Address
 {
     public string $street;
@@ -31,5 +30,3 @@ class Address
         $this->geo = $geo;
     }
 }
-
-
