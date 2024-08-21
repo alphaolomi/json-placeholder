@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Json\Resources;
 
-use Saloon\Contracts\Connector;
+use Saloon\Http\Connector;
 
 class Resource
 {

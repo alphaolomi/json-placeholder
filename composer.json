@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.1",
+        "saloonphp/saloon": "^3.0"
     },
     "require-dev": {
         "pestphp/pest": "^2.20",
@@ -24,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Json\\JsonPlaceholder\\": "src"
+            "Json\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Json\\JsonPlaceholder\\Tests\\": "tests"
+            "Json\\Tests\\": "tests"
         }
     },
     "scripts": {
