@@ -12,7 +12,7 @@ it('can create a new user', function () {
         'address' => '123 Street, City',
         'phone' => '123456789',
         'website' => 'johndoe.com',
-        'company' => 'Doe Corp'
+        'company' => 'Doe Corp',
     ];
 
     $user = UserFactory::new($attributes);
@@ -31,7 +31,7 @@ it('can create a collection of users', function () {
         [
             'id' => 2,
             'name' => 'Jane Doe',
-        ]
+        ],
     ];
 
     $userCollection = UserFactory::collection($users);
