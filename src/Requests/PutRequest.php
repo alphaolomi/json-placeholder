@@ -25,15 +25,11 @@ class PutRequest extends BaseRequest implements HasBody
 
     /**
      * Request payload
-     *
-     * @var array
      */
     protected ?array $data;
 
     /**
      * Create a new request instance
-     *
-     * @param  ?array  $data
      */
     public function __construct(string $path, ?array $data = null)
     {

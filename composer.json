@@ -1,40 +1,50 @@
 {
     "name": "alphaolomi/json-placeholder",
-    "description": "PHP SDK for JSON Placeholder API, A Free fake API for testing and prototyping.",
+    "description": "This is my package json-placeholder",
+    "keywords": [
+        "alphaolomi",
+        "json-placeholder"
+    ],
+    "homepage": "https://github.com/alphaolomi/json-placeholder",
     "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "Alpha Olomi",
+            "email": "alphaolomi@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.0",
-        "sammyjo20/saloon": "^2.2"
+        "php": "^8.1",
+        "saloonphp/saloon": "^3.0"
     },
     "require-dev": {
+        "pestphp/pest": "^2.20",
         "laravel/pint": "^1.0",
-        "pestphp/pest": "^1.22"
+        "spatie/ray": "^1.28"
     },
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
-            "Json\\": "src/"
+            "Json\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Json\\Tests\\": "tests/"
-        }
-    },
-    "config": {
-        "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "Json\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "format": "vendor/bin/pint",
-        "test": "vendor/bin/pest"
-    }
+        "test": "vendor/bin/pest",
+            "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

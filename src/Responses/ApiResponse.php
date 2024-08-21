@@ -8,5 +8,5 @@ use Saloon\Http\Response;
 
 class ApiResponse extends Response
 {
-    //
+    // ...
 }
